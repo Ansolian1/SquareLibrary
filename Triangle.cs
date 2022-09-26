@@ -42,5 +42,39 @@ namespace SquareLibrary
             else
                 return true;
         }
+
+        public bool IsRightTriangle()
+        {
+            double hypotenuse;
+            double leg1;
+            double leg2;
+            if (SideA >= SideB && SideA >= SideC)
+            {
+                hypotenuse = SideA;
+                leg1 = SideB;
+                leg2 = SideC;
+            }
+            else if (SideC >= SideB)
+            {
+                hypotenuse = SideC;
+                leg1 = SideA;
+                leg2 = SideB;
+            }
+            else
+            {
+                hypotenuse = SideB;
+                leg1 = SideA;
+                leg2 = SideC;
+            }
+
+            if (Math.Round(hypotenuse * hypotenuse, 3) == Math.Round((leg1 * leg1 + leg2 * leg2), 3))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
