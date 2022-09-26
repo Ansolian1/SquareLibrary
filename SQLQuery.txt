@@ -1,0 +1,8 @@
+CREATE TABLE Product ( id INTEGER PRIMARY KEY, name VARCHAR(20))
+CREATE TABLE Category ( id INTEGER PRIMARY KEY, name VARCHAR(20))
+CREATE TABLE ProductCategory ( id INTEGER PRIMARY KEY, ProductId int NOT NULL FOREIGN KEY REFERENCES Product(Id), CategoryId int NOT NULL FOREIGN KEY REFERENCES Category(Id))
+
+select Product.name AS "Имя продукта",  Category.name AS "Имя категории"
+from Product 
+LEFT JOIN ProductCategory ON ProductCategory.Productid = Product.Id
+LEFT JOIN Category ON ProductCategory.id = Category.Id
